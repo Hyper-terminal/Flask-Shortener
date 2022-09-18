@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+ html, body {
+	 height: 100%;
+}
+
+h1{
+  color: white;
+   margin-left: 33%;
+   font-family: "Tinos", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+   font-weight: bold;
+   font-size: 2.5em;
+}
+
+ body {
+	 margin: 0;
+	 background: linear-gradient(45deg, #134e5e, #71b280);
+	 font-family: sans-serif;
+	 font-weight: 100;
+}
+ .container {
+	 position: absolute;
+	 top: 50%;
+	 left: 50%;
+	 transform: translate(-50%, -50%);
+}
+ table {
+   margin: auto;
+	 width: 90%;
+	 border-collapse: collapse;
+	 overflow: hidden;
+	 box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+ th, td {
+	 padding: 15px;
+	 background-color: rgba(255, 255, 255, 0.2);
+	 color: #fff;
+}
+ th {
+	 text-align: left;
+}
+ thead th {
+	 background-color: #2a5555;
+}
+ tbody tr:hover {
+	 background-color: rgba(255, 255, 255, 0.3);
+}
+ tbody td {
+	 position: relative;
+}
+ tbody td:hover:before {
+	 content: "";
+	 position: absolute;
+	 left: 0;
+	 right: 0;
+	 top: -9999px;
+	 bottom: -9999px;
+	 background-color: rgba(255, 255, 255, 0.2);
+	 z-index: -1;
+}
+</style>
+    <title>Statistics</title>
+</head>
+<body>
+    <section>
+  <h1>Flask Shortener Statistics</h1>
+      <div class="tbl-content">
+    <table cellpadding="0" cellspacing="0" border="0">
+        <thead>
+            <tr>
+              <th>#</th>
+              <th>Short</th>
+              <th>Original</th>
+              <th>Clicks</th>
+              <th>Creation Date</th>
+            </tr>
+          </thead>
+      <tbody>
+        {% for url in urls %}
+        <tr>
+          <td>{{ url['id'] }}</td>
+          <td>{{ url['short_url'] }} </td>
+          <td>{{ url['original_url'] }}</td>
+          <td>{{ url['clicks'] }}</td>
+          <td>{{ url['created'] }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
